@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import axios from "axios";
 import { useState, useEffect } from 'react';
@@ -52,7 +53,7 @@ function Home() {
                   </div>
                 </> : []
             }
-            <img src="/logo-app.png" alt="" className="img-center" width="50%" />
+            <Image src="/logo-app.png" alt="" width={250} height={97} />
             <p className="description comcen">Command Center IT BRI</p>
             <p className="description tagline">Variability - Visibility - Velocity</p>
           </div>
@@ -61,7 +62,7 @@ function Home() {
             <div className="circular-potrait">
               {
                 Object.keys(karyawan).length > 0 &&
-                <img src={`/${karyawan.foto}`} alt="" className="rounded" />
+                <Image src={`/${karyawan.foto}`} alt="" className="rounded" width={426} height={543} />
               }
             </div>
           </div>
