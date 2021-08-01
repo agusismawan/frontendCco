@@ -32,7 +32,6 @@ function Home() {
   return (
     <>
       <Navbar />
-
       <section className="hero">
         <div className="container">
           <div className="text-wrapper">
@@ -49,26 +48,19 @@ function Home() {
                   </div>
                 </> : []
             }
-            <Image
-              src="/logo-app.png"
-              alt="Picture of the CC"
-              width={300}
-              height={116}
-            />
+            <img src="/logo-app.png" alt="" className="img-center" width="50%" />
             <p className="description comcen">Command Center IT BRI</p>
             <p className="description tagline">Variability - Visibility - Velocity</p>
           </div>
 
           <div className="image-wrapper">
-            {
-              Object.keys(karyawan).length > 0 &&
-              <Image
-                src={`/${karyawan.foto}`}
-                alt="Picture of the CC"
-                width={426}
-                height={543}
-              />
-            }
+            <div className="circular-potrait">
+              {
+                Object.keys(karyawan).length > 0 &&
+                <img src={`/${karyawan.foto}`} alt="" className="rounded" />
+              }
+
+            </div>
           </div>
         </div>
       </section>

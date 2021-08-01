@@ -87,7 +87,7 @@ a[href] {
             }
 
             &.comcen {
-                margin-top: 0;
+                margin-top: -5px;
                 margin-bottom: -5px;
             }
 
@@ -141,7 +141,22 @@ a[href] {
     }
 
     .image-wrapper {
-        width: 50%;
         text-align: right;
+        width: 50%;
+
+        .circular-potrait {
+            border: 0.5px solid #c4c4c4;
+            position: relative;
+            width: 430px;
+            height: 430px;
+            overflow: hidden;
+            border-radius: 50%;
+            float: right;
+            
+            .rounded {
+                width: 100%;
+                height: auto;
+            }
+        }
     }
 }
