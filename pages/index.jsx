@@ -1,31 +1,35 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import axios from "axios";
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import moment from 'moment';
+import 'moment/locale/id';
 
 function Home() {
   process.env.TZ = 'Asia/Jakarta';
-  const tglIndo = require('moment/locale/id');
-  moment.locale('id', tglIndo);
+  moment.locale('id');
   const [karyawan, setKaryawan] = useState({});
   const [shift, setShift] = useState('');
   const [date, setDate] = useState('');
 
   useEffect(() => {
-    const jam = parseInt(moment().format('HH'));
-    setDate(moment().format("dddd, LL"));
+    const timeFormat = "HH:mm:ss";
+    const now = moment();
+    const time1 = moment('06:00:00', timeFormat),
+      time2 = moment('15:00:00', timeFormat),
+      time3 = moment('22:00:00', timeFormat);
+
+    setDate(moment(now).format("dddd, LL"));
 
     axios.get('http://localhost:4100/getKaryawan')
       .then(response => setKaryawan(response.data));
 
-    if (jam > 6 && jam < 15) {
+    if (now.isBetween(time1, time2)) {
       setShift('Shift 1')
-    } else if (jam > 15 && jam < 23) {
+    } else if (now.isBetween(time2, time3)) {
       setShift('Shift 2')
     } else {
-      setShift('Shift 3')
+      setShift('Shift 3');
     }
   }, [])
 
@@ -59,7 +63,6 @@ function Home() {
                 Object.keys(karyawan).length > 0 &&
                 <img src={`/${karyawan.foto}`} alt="" className="rounded" />
               }
-
             </div>
           </div>
         </div>
