@@ -20,7 +20,7 @@ function Home() {
       time2 = moment('15:00:00', timeFormat),
       time3 = moment('22:00:00', timeFormat);
 
-    setDate(moment(now).format("dddd, LL"));
+    setDate(now.format("dddd, LL"));
 
     axios.get('http://localhost:4100/getKaryawan')
       .then(response => setKaryawan(response.data));
