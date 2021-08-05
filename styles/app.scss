@@ -15,7 +15,7 @@ a[href] {
 }
 
 .container {
-    width: 980px;
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -49,7 +49,7 @@ a[href] {
         margin-left: auto;
         list-style: none;
 
-        a[href] {
+        .nav-item {
             position: relative;
             display: inline-block;
             margin-left: 30px;
@@ -89,6 +89,10 @@ a[href] {
 
     .text-wrapper {
         width: 50%;
+
+        &.w-full {
+            width: 100%;
+        }
 
         .description {
             font-size: 25px;
@@ -174,6 +178,27 @@ a[href] {
                 width: 100%;
                 height: auto;
             }
+        }
+    }
+}
+
+.about-wrapper {
+    display: flex;
+    font-size: 20px;
+
+    .about-item {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #fff;
+        color: #121212;
+        text-decoration: none;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        transition: transform .5s;
+        box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+
+        &:hover {
+            transform: scale(1.1);
         }
     }
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import axios from "axios";
 import { useState, useEffect } from 'react';
@@ -22,7 +23,7 @@ function Home() {
 
     setDate(now.format("dddd, LL"));
 
-    axios.get('http://localhost:4100/getKaryawan')
+    axios.get('http://172.18.44.227:4100/getKaryawan')
       .then(response => setKaryawan(response.data));
 
     if (now.isBetween(time1, time2)) {
@@ -36,13 +37,16 @@ function Home() {
 
   return (
     <>
+      <Head>
+        <title>Home</title>
+      </Head>
       <Navbar />
       <section className="hero">
         <div className="container">
           <div className="text-wrapper">
             <h1 className="title shift">{shift}</h1>
             <p className="description time">{date}</p>
-            <p className="description">Today's Chief Commander</p>
+            <p className="description">Today&apos;s Chief Commander</p>
             {
               Object.keys(karyawan).length > 0 ?
                 <>

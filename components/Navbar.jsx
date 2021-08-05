@@ -1,7 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { withRouter } from 'next/router';
 
-function Navbar() {
+function Navbar({ router }) {
+    const navs = [
+        { id: 1, text: 'Home', href: '/' },
+        { id: 2, text: 'Schedule', href: 'https://docs.google.com/spreadsheets/d/1UjW1DNYovuPxvmq0KhuW1ISTME1uMEzGRqcsUPNFjRw/edit#gid=276565603' },
+        { id: 3, text: 'About', href: '/about' }
+    ];
+
     return (
         <nav className="navbar">
             <div className="container">
@@ -17,13 +24,13 @@ function Navbar() {
                 </Link>
 
                 <ul className="nav-links">
-                    <li><Link href="/"><a className="nav-item active">Home</a></Link></li>
-                    <li><Link href="https://docs.google.com/spreadsheets/d/1UjW1DNYovuPxvmq0KhuW1ISTME1uMEzGRqcsUPNFjRw/edit#gid=276565603" passHref><a target="_blank" className="nav-item">Schedule</a></Link></li>
-                    <li><Link href="/about"><a className="nav-item">About</a></Link></li>
+                    {navs.map(nav => (
+                        <li key={nav.id}><Link href={nav.href} passHref><a target={nav.id == 2 ? '_blank' : ''} className={`nav-item ${router.pathname == nav.href ? 'active' : ''}`}>{nav.text}</a></Link></li>
+                    ))}
                 </ul>
             </div>
         </nav>
     );
 }
 
-export default Navbar;
+export default withRouter(Navbar);
