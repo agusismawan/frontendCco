@@ -2,6 +2,12 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+
+    // start
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fc;
+    // end
 }
 
 a[href] {
@@ -15,7 +21,15 @@ a[href] {
 }
 
 .navbar {
-    margin-top: 30px;
+    // margin-top: 30px; // dimatikan dulu
+
+    // start
+    padding: 5px;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+    // end
 
     .container {
         display: flex;
@@ -118,7 +132,6 @@ a[href] {
                 color: #fff;
                 text-decoration: none;
                 border-radius: 10px;
-                // font-size: 25px;
                 transition: transform .5s;
                 margin-left: 0px;
                 margin-right: 15px;
@@ -145,10 +158,14 @@ a[href] {
         width: 50%;
 
         .circular-potrait {
-            border: 0.5px solid #c4c4c4;
+            // start
+            border: 8px solid #f8f9fc;
+            box-shadow: 0 0 4px #888;
+            // end
+            
             position: relative;
-            width: 430px;
-            height: 430px;
+            width: 415px;
+            height: 415px;
             overflow: hidden;
             border-radius: 50%;
             float: right;
