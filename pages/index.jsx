@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import axios from "axios";
 import { useState, useEffect } from 'react';
@@ -36,6 +37,9 @@ function Home() {
 
   return (
     <>
+      <Head>
+        <title>Home</title>
+      </Head>
       <Navbar />
       <section className="hero">
         <div className="container">
